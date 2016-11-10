@@ -1,7 +1,7 @@
 
 extends Node2D
 
-const GRAVITY = 200.0
+const GRAVITY = 9.81
 const WALK_SPEED = 200
 
 var velocity = Vector2()

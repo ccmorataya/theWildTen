@@ -1,0 +1,51 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scripts/wildMan.gd" type="Script" id=1]
+[ext_resource path="res://sprites/wildmanSpriteSheet.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 32, 32 )
+
+[node name="index" type="Control"]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="player" type="Node2D" parent="."]
+
+script/script = ExtResource( 1 )
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="player"]
+
+transform/pos = Vector2( 374.515, 271.468 )
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -374.515, -271.468 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="Sprite" type="Sprite" parent="player/KinematicBody2D"]
+
+transform/pos = Vector2( -374.515, -271.468 )
+transform/scale = Vector2( 1, 1 )
+texture = ExtResource( 2 )
+hframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player/KinematicBody2D"]
+
+transform/pos = Vector2( -374.515, -271.468 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
+
+

@@ -5,7 +5,7 @@ const GRAVITY = 100
 const WALK_SPEED = 200
 
 var velocity = Vector2()
-onready var player = get_node("KinematicBody2D/CollisionShape2D")
+onready var player = get_node("KinematicBody2D")
 
 func _ready():
 	set_fixed_process(true)
@@ -20,10 +20,14 @@ func _fixed_process(delta):
 	else:
 		velocity.x = 0
 
+	var motion = velocity * delta
+	motion = player.move(motion)
+
 	#change this snipet to detect the collision with the floor
 	#if (player is colliding):
 		#velocity.y = 0
-
-	var motion = velocity * delta
-	get_node("KinematicBody2D").move(motion)
-	print(velocity.y)
+	if (player.is_colliding()):
+		var n = player.get_collision_normal()
+		motion = n.slide(motion)
+		velocity = n.slide(velocity)
+		player.move(motion)

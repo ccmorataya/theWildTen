@@ -42,7 +42,6 @@ collision/margin = 0.08
 
 [node name="Sprite" type="Sprite" parent="player/KinematicBody2D"]
 
-transform/scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 hframes = 3
 

@@ -1,7 +1,7 @@
 
 extends Node2D
 
-const GRAVITY = 1000
+export var GRAVITY = 1000
 const WALK_SPEED = 200
 
 var velocity = Vector2()

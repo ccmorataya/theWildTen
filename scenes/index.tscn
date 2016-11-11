@@ -29,6 +29,7 @@ margin/bottom = 40.0
 [node name="player" type="Node2D" parent="."]
 
 script/script = ExtResource( 1 )
+GRAVITY = 1000
 
 [node name="KinematicBody2D" type="KinematicBody2D" parent="player"]
 
@@ -91,6 +92,31 @@ bounce = 0.0
 texture = ExtResource( 3 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+
+shape = SubResource( 2 )
+trigger = false
+_update_shape_index = 0
+
+[node name="StaticBody2D1" type="StaticBody2D" parent="."]
+
+transform/pos = Vector2( 1147.82, 228.539 )
+transform/scale = Vector2( 11.0424, 1 )
+input/pickable = false
+shapes/0/shape = SubResource( 2 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D1"]
+
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D1"]
 
 shape = SubResource( 2 )
 trigger = false
